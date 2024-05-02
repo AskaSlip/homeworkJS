@@ -118,13 +118,13 @@ console.log(users[9].password);
 
 
 let temperature = [
-    {morning: 14, afternoon: 19, evening: 15},
-    {morning: 16, afternoon: 22, evening: 17},
-    {morning: 11, afternoon: 12, evening: 9},
-    {morning: 13, afternoon: 14, evening: 8},
-    {morning: 7, afternoon: 17, evening: 12},
-    {morning: 17, afternoon: 23, evening: 17},
-    {morning: 21, afternoon: 27, evening: 20}
+    {day: 1, morning: 14, afternoon: 19, evening: 15},
+    {day: 2, morning: 16, afternoon: 22, evening: 17},
+    {day: 3, morning: 11, afternoon: 12, evening: 9},
+    {day: 4, morning: 13, afternoon: 14, evening: 8},
+    {day: 5, morning: 7, afternoon: 17, evening: 12},
+    {day: 6, morning: 17, afternoon: 23, evening: 17},
+    {day: 7, morning: 21, afternoon: 27, evening: 20}
 ];
 
 console.log(temperature);
@@ -136,7 +136,7 @@ console.log(temperature);
 //     - Є змінна х, якій ви надаєте довільне числове значення.
 //     Якщо змінна x не дорівнює нулю, виведіть 'Вірно', інакше виведіть 'Невірно'. Перевірте  скрипт при a, що дорівнює 1, 0, -3
 
-let x = 1;
+let x = 0;
 if (x !== 0){
     console.log('Вірно');
 } else {
@@ -147,7 +147,7 @@ if (x !== 0){
 // - Дано змінну time яка рівна числу від 0 до 59. Потрібно написати код, який перевірить, до якої четверті години попадає число
 // (в першу, другу, третю или четверту частину години).
 
-let time = 45;
+let time = 17;
 
 if (time < 0 || time > 59){
     console.log('error');
@@ -164,7 +164,7 @@ if (time < 0 || time > 59){
 
 // - У змінній day дано якесь число від 1 до 31. Потрібно визначити, у яку половину(декаду) місяця потрапляє це число (у першу, другу чи третю).
 
-let day = 15;
+let day = 27;
 if(day <= 0){
     console.log('error');
 }else if ( day <= 11){
@@ -181,7 +181,7 @@ if(day <= 0){
 // - Скласти розклад на тиждень за домопоги switch. Користувач вводить порядковий номер дня тижня і на екрані відображається інфа що заплановано на цей день (можна замість плану на день, назву дня англійською).
 
 
-let weekday = 7;
+let weekday = 3;
 switch (weekday){
     case 1:
         console.log('Monday');
@@ -230,7 +230,7 @@ if (num1 > num2){
 //     буде присвоювати змінній х значення "default"  якщо ви намагаєтесь присвоїти в неї falsy-значення (хибноподібні, тобто ті, які приводиться до false, а це 0 null undefined і тд).
 
 
-let valueX = '';
+let valueX = 0;
 let X = !!valueX === false ? 'default' : valueX;
 console.log(X);
 
