@@ -118,13 +118,13 @@ console.log(users[9].password);
 
 
 let temperature = [
-    {day: 1, morning: 14, afternoon: 19, evening: 15},
-    {day: 2, morning: 16, afternoon: 22, evening: 17},
-    {day: 3, morning: 11, afternoon: 12, evening: 9},
-    {day: 4, morning: 13, afternoon: 14, evening: 8},
-    {day: 5, morning: 7, afternoon: 17, evening: 12},
-    {day: 6, morning: 17, afternoon: 23, evening: 17},
-    {day: 7, morning: 21, afternoon: 27, evening: 20}
+    {day: 'Monday', morning: 14, afternoon: 19, evening: 15},
+    {day: 'Tuesday', morning: 16, afternoon: 22, evening: 17},
+    {day: 'Wednesday', morning: 11, afternoon: 12, evening: 9},
+    {day: 'Thursday', morning: 13, afternoon: 14, evening: 8},
+    {day: 'Friday', morning: 7, afternoon: 17, evening: 12},
+    {day: 'Saturday', morning: 17, afternoon: 23, evening: 17},
+    {day: 'Sunday', morning: 21, afternoon: 27, evening: 20}
 ];
 
 console.log(temperature);
