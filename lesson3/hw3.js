@@ -14,7 +14,7 @@ let array1 = [
     "Last item, number ten."
 ];
 
-for (let i = 0; i < array1.length; i++) {
+for (let i = 0; i < 10; i++) {
     document.write(`<div> 
         ${array1[i]}
    </div> `)
@@ -36,7 +36,7 @@ let array2 = [
     {index: 10, text: "Text for the tenth object"}
 ];
 
-for (let i = 0; i < array2.length; i++) {
+for (let i = 0; i < 10; i++) {
     const array2Item = array2[i];
     document.write(`   <div>
              ${array2Item.index} ${array2Item.text}
@@ -70,7 +70,7 @@ let titlesArray = [
 ];
 
 let i = 0;
-while (i < titlesArray.length) {
+while (i < 20) {
 
     document.write(`
     <h1>${titlesArray[i]}</h1>
@@ -106,7 +106,7 @@ let titlesArrayWithIndex = [
 ];
 
 let x = 0;
-while (x < titlesArrayWithIndex.length) {
+while (x < 20) {
     const arrayWithIndexItem = titlesArrayWithIndex[x];
     document.write(`
     <h1>${arrayWithIndexItem.index}  ${arrayWithIndexItem.title}</h1>
