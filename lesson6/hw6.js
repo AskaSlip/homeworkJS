@@ -131,35 +131,26 @@ console.log(findAce);
 
 // - всі шістки
 console.log('----all six---');
-let findSix = CreateDesk().find(value => {
-    if (value.value === '6') {
-        console.log(value);
-    }
-})
+let findSix = CreateDesk().filter(value => value.value === '6');
+console.log(findSix);
+
 
 // - всі червоні карти
 console.log('----all red cards---');
-let findRed = CreateDesk().find(value => {
-    if (value.color === 'red') {
-        console.log(value);
-    }
-})
+let findRed = CreateDesk().filter(value => value.color === 'red');
+        console.log(findRed);
+
 
 // - всі буби
 console.log('----all diamonds---');
-let findDiamonds = CreateDesk().find(value => {
-    if (value.cardSuit === 'diamond') {
-        console.log(value);
-    }
-})
+let findDiamonds = CreateDesk().filter(value => value.cardSuit === 'diamond')
+        console.log(findDiamonds);
 
 // - всі трефи від 9 та більше
 console.log('----spade over 9---');
-let findSpade = CreateDesk().find(value => {
-    if (value.cardSuit === 'spade' && value.value >= '9' || value.value === '10' && value.cardSuit === 'spade') {
-        console.log(value);// може не правильно, але ascii code 10 походу менше за 9 :(
-    }
-})
+let findSpade = CreateDesk().filter(value => value.cardSuit === 'spade' && value.value >= '9' || value.value === '10' && value.cardSuit === 'spade');
+        console.log(findSpade)// може не правильно, але ascii code 10 походу менше за 9 :(
+
 
 
 // =========================
@@ -268,23 +259,35 @@ let coursesArray = [
 // --написати пошук всіх об'єктів, в який в modules є sass
 console.log('---search for sass-----');
 
-let findSass = coursesArray.filter(value => {
-    for (let i = 0; i < value.modules.length; i++) {
-        if (value.modules[i] === 'sass') {
-            console.log(value);
-        }
+// let findSass = coursesArray.filter(value => {
+//     for (let i = 0; i < value.modules.length; i++) {
+//         if (value.modules[i] === 'sass') {
+//             console.log(value);
+//         }
+//     }
+// })
+
+let findSass = coursesArray.find(value => {
+    if(value.modules.includes('sass')){
+        console.log(value);
     }
-});
+})
 
 
 // --написати пошук всіх об'єктів, в який в modules є docker
 
 console.log('---search for docker-----');
 
-let findDocker = coursesArray.filter(value => {
-    for (let i = 0; i < value.modules.length; i++) {
-        if (value.modules[i] === 'docker') {
-            console.log(value);
-        }
+// let findDocker = coursesArray.filter(value => {
+//     for (let i = 0; i < value.modules.length; i++) {
+//         if (value.modules[i] === 'docker') {
+//             console.log(value);
+//         }
+//     }
+// });
+
+let findDocker = coursesArray.find(value => {
+    if (value.modules.includes('docker')){
+        console.log(value);
     }
 });
