@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+
+</head>
+<body>
+<!--// Є сторінка index.html (назва довільна), при відвідуванні якої в локальне-->
+<!--// сховще, в масив sessions зберігається інформація про дату та час-->
+<!--// відвідування сторінки. Є ще сторінка sessions.html (назва довільна),-->
+<!--// при відвідуванні якої потрібно відмалювати всю інформацію про-->
+<!--// відвідування сторінки index.html. Інфу НЕ виводити в консоль,-->
+<!--// а побудувати дом структуру під кожну сессію-->
+<script>
+    let userVisitDate = new Date().toLocaleDateString();
+    let userVisitTime = new Date().toLocaleTimeString();
+    let visitInfo = {userVisitTime,userVisitDate}
+    // console.log(visitInfo);
+
+    document.addEventListener('DOMContentLoaded', ev => {
+        let visitsFromStorage = localStorage.getItem('visits');
+        if (!visitsFromStorage){
+            localStorage.setItem('visits', JSON.stringify([visitInfo]));
+        }
+
+        else {
+            let visitsArray = JSON.parse(visitsFromStorage);
+            visitsArray.push(visitInfo);
+            localStorage.setItem('visits', JSON.stringify(visitsArray))
+
+        }
+
+
+    })
+
+
+
+
+
+</script>
+
+</body>
+</html>

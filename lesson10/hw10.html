@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        #numberBlock {
+            width: 200px;
+            height: 200px;
+            background-color: lavender;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+
+        .btn {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #text {
+            width: 200px;
+            height: 200px;
+            background-color: lightyellow;
+        }
+
+        .visible {
+            width: 200px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .age {
+            height: 100px;
+        }
+
+        .container {
+            width: 200px;
+            height: 210px;
+            background-color: lightgreen ;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .items {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            align-items: center;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        table,td,tr{
+            border: 1px solid black;
+            border-collapse: collapse;
+
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<!-- form for task 1-->
+<form name="f1">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="surname" placeholder="surname">
+    <input type="text" name="age" placeholder="age">
+    <button>Create</button>
+</form>
+
+
+<!--block for task 2-->
+<br>
+<div id="numberBlock">
+
+</div>
+
+
+
+
+<!--task with invisible-->
+<br>
+<div id="text"></div>
+
+
+
+<!--task with age-->
+<br>
+<form name="f2">
+    <input type="text" name="userAge" placeholder="write your age">
+    <button>Get info</button>
+</form>
+
+<!--task with array[100]-->
+
+<div class="container">
+    <div class="items" id="items"></div>
+    <div class="buttons">
+        <button id="prev" disabled>Prev</button>
+        <button id="next">Next</button>
+    </div>
+</div>
+
+
+<form name="formTable">
+    <input type="text" name="rows" placeholder="рядки">
+    <input type="text" name="columns" placeholder="ячейки">
+    <input type="text" name="cellsContent" placeholder="вміст ячейки">
+    <button>create table</button>
+</form>
+
+
+<script src="hw10.js"></script>
+
+</body>
+</html>
