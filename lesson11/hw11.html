@@ -14,10 +14,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
         }
         .carts {
             width: 50vw;
-            border: 2px solid #df85a8;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -44,6 +44,30 @@
 
         }
 
+        .recipe {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid green;
+            padding: 5px;
+        }
+
+        .aboutPlate {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .instruction {
+            width: 80%;
+        }
+
+        .recipeImage > img {
+            width: 300px;
+        }
 
 
 
@@ -54,6 +78,11 @@
 
 <!--TASK 1-->
 <div class="carts"></div>
+
+<!--TASK 2-->
+<br>
+<div class="recipes"></div>
+
 
 <script src="hw11.js"></script>
 </body>
