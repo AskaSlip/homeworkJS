@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>users</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: goldenrod;
+        }
+    </style>
+
+</head>
+<body>
+
+<ol class="users-list">
+
+</ol>
+
+<script>
+
+    //     - зробити файл users.html
+    // з ендпоінту http://jsonplaceholder.typicode.com/users отримати всіх користувачів
+    //     вивести їх id + name списком та додати посилання з href = user-details.html?id=XXX (замість ХХХ - айді юзера)
+    // при кліку на посилання перехід на відповідну сторінку, на якій буде вся інформація про користувача (всі 15 полів)
+    // отримана через додатковий запит (https://jsonplaceholder.typicode.com/users/XXX   де ХХХ - айді користувача)
+
+    let list = document.getElementsByClassName('users-list')[0]
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then((value) => value.json())
+        .then((response) => {
+
+            let users = response;
+            for (const user of users) {
+                let li = document.createElement('li')
+                let link = document.createElement('a')
+
+                li.innerText = `${user.id} - ${user.name}`
+
+                link.innerText = ` -  more info`
+                link.href = `https://jsonplaceholder.typicode.com/users/${user.id}`
+                link.target = 'to_blank'
+
+                li.append(link)
+                list.appendChild(li)
+
+            }
+
+
+        });
+
+
+</script>
+
+
+</body>
+</html>
