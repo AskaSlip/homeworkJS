@@ -8,7 +8,7 @@
     <title>Document</title>
     <style>
 
-        body{
+        body {
             display: flex;
             flex-direction: column;
         }
@@ -35,10 +35,18 @@
             justify-content: space-between;
         }
 
+        .hiddenBlock {
+            width: 200px;
+            height: 200px;
+        }
         #text {
             width: 200px;
             height: 200px;
             background-color: lightyellow;
+        }
+
+        #hideButton {
+            width: 200px;
         }
 
         .visible {
@@ -56,24 +64,27 @@
         .container {
             width: 200px;
             height: 210px;
-            background-color: lightgreen ;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: center;
         }
+
         .items {
             display: flex;
             flex-direction: column;
             width: 200px;
             align-items: center;
+            background-color: lightgreen;
         }
 
         .buttons {
             display: flex;
-            gap: 20px;
+            width: 100%;
+            justify-content: space-between;
         }
-        table,td,tr{
+
+        table, td, tr {
             border: 1px solid black;
             border-collapse: collapse;
 
@@ -86,13 +97,14 @@
 </head>
 <body>
 <!-- form for task 1-->
-<form name="f1">
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="surname" placeholder="surname">
-    <input type="text" name="age" placeholder="age">
-    <button>Create</button>
-</form>
-
+<div class="firstForm">
+    <form name="f1">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="surname" placeholder="surname">
+        <input type="text" name="age" placeholder="age">
+        <button>Create</button>
+    </form>
+</div>
 
 <!--block for task 2-->
 <br>
@@ -101,23 +113,8 @@
 </div>
 
 
-
-
-<!--task with invisible-->
-<br>
-<div id="text"></div>
-
-
-
-<!--task with age-->
-<br>
-<form name="f2">
-    <input type="text" name="userAge" placeholder="write your age">
-    <button>Get info</button>
-</form>
-
 <!--task with array[100]-->
-
+<br>
 <div class="container">
     <div class="items" id="items"></div>
     <div class="buttons">
@@ -127,13 +124,33 @@
 </div>
 
 
+<!--task with invisible-->
+<br>
+<div class="hiddenBlock">
+    <div id="text"></div>
+</div>
+<button id="hideButton">Push me</button>
+
+
+<!--task with age-->
+<br>
+<div class="checkAge">
+    <form name="f2">
+        <input type="text" name="userAge" placeholder="write your age">
+        <button>Get info</button>
+    </form>
+</div>
+
+
+<br>
+<div class="tableCreator">
 <form name="formTable">
     <input type="text" name="rows" placeholder="рядки">
     <input type="text" name="columns" placeholder="ячейки">
     <input type="text" name="cellsContent" placeholder="вміст ячейки">
     <button>create table</button>
 </form>
-
+</div>
 
 <script src="hw10.js"></script>
 

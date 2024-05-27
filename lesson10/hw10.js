@@ -1,7 +1,7 @@
 // Стоврити форму з трьома полями для name,surname,age та кнопкою. При натисканні на кнопку зчитати данні з полів, та вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
 
 let f1 = document.forms.f1;
-let formBlock = document.getElementsByClassName('form')
+let formBlock = document.getElementsByClassName('firstForm')[0];
 f1.onsubmit = function (e) {
     e.preventDefault();
     let userName = f1.name.value;
@@ -14,7 +14,7 @@ f1.onsubmit = function (e) {
     User surname is ${userSurname}
     User age - ${userAge}`
 
-    document.body.appendChild(userBlock);
+    formBlock.append(userBlock)
 }
 
 // ==========================
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", ev => {
     blockWithNumber.innerText = changedValue;
 });
 
-// ==========================  окремо зроблено в sessions.html i index.html!!!!
+// ==========================
 // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне
 // сховще, в масив sessions зберігається інформація про дату та час
 // відвідування сторінки. Є ще сторінка sessions.html (назва довільна),
@@ -101,19 +101,15 @@ createItems(currPage)
 // з id="text".
 
 
-
+let divHideContainer = document.getElementsByClassName('hiddenBlock')[0]
 let blockWithId = document.getElementById('text')
-let buttonForBlockWithId = document.createElement('button')
-buttonForBlockWithId.classList = 'visible';
-buttonForBlockWithId.innerText = 'Push me'
+let buttonForBlockWithId = document.getElementById('hideButton')
 
 buttonForBlockWithId.addEventListener('click', ev => {
     let item = document.getElementById('text')
     item.classList.toggle('hide')
-})
+});
 
-document.body.appendChild(blockWithId)
-document.body.appendChild(buttonForBlockWithId)
 
 
 //     - створити інпут який приймає вік людини та кнопку яка підтверджує
@@ -122,6 +118,7 @@ document.body.appendChild(buttonForBlockWithId)
 //     користувача
 
 let formAge = document.forms.f2;
+let ageContainer = document.getElementsByClassName('checkAge')[0]
 
 f2.onsubmit = function (e) {
     e.preventDefault();
@@ -132,7 +129,7 @@ f2.onsubmit = function (e) {
     let ageMessage = document.createElement('div')
     let ageFromStorage = +JSON.parse(localStorage.getItem('age'));
     ageFromStorage < 18 ? ageMessage.innerText = `Sorry, Bro. I gonna call you mom` : ageMessage.innerText = `You are an adult`;
-    document.body.appendChild(ageMessage)
+    ageContainer.appendChild(ageMessage)
 
 };
 
@@ -143,6 +140,7 @@ f2.onsubmit = function (e) {
 // формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
 
+let divTableCreatorContainer = document.getElementsByClassName('tableCreator')[0]
 document.addEventListener('DOMContentLoaded', () => {
     let form = document.forms.formTable;
 
@@ -183,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        document.body.appendChild(table);
+        divTableCreatorContainer.appendChild(table);
     }
 
     if (localStorage.getItem('table')) {
