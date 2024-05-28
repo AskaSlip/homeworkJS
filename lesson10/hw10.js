@@ -8,13 +8,15 @@ f1.onsubmit = function (e) {
     let userSurname = f1.surname.value;
     let userAge = f1.age.value;
 
-    let userBlock = document.createElement('div')
+
+
+    let userBlock = document.getElementById('userInfo')
     userBlock.innerText = `
     User name is ${userName}
     User surname is ${userSurname}
     User age - ${userAge}`
 
-    formBlock.append(userBlock)
+
 }
 
 // ==========================
@@ -123,10 +125,10 @@ f2.onsubmit = function (e) {
     // let obj = {userAge};
     localStorage.setItem('age', JSON.stringify(userAge));
 
-    let ageMessage = document.createElement('div')
+    let ageMessage = document.getElementById('age')
     let ageFromStorage = +JSON.parse(localStorage.getItem('age'));
     ageFromStorage < 18 ? ageMessage.innerText = `Sorry, Bro. I gonna call you mom` : ageMessage.innerText = `You are an adult`;
-    ageContainer.appendChild(ageMessage)
+
 
 };
 
@@ -164,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let valuesForCreateTable = JSON.parse(localStorage.getItem('table'));
         console.log(valuesForCreateTable);
 
-        let table = document.createElement('table');
+        let table = document.getElementById('table')
 
         valuesForCreateTable.forEach(value => {
             for (let i = 0; i < (+value.rows); i++) {
@@ -178,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        divTableCreatorContainer.appendChild(table);
+        localStorage.clear()
     }
 
     if (localStorage.getItem('table')) {

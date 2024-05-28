@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>user-details</title>
+
+</head>
+<body>
+
+<div class="user-info">
+
+</div>
+
+
+<script>
+
+    let divUserInfoContainer = document.getElementsByClassName('user-info')[0]
+
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id');
+
+
+    fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
+        .then((value) => value.json())
+        .then((data) => {
+
+
+divUserInfoContainer.innerHTML = `
+            <h2>User Details</h2>
+            <p><strong>ID</strong> ${data.id}</p>
+            <p><strong>Name:</strong> ${data.name}</p>
+            <p><strong>Username:</strong> ${data.username}</p>
+            <p><strong>Email:</strong> ${data.email}</p>
+            <p><strong>Phone:</strong> ${data.phone}</p>
+            <p><strong>Website:</strong> ${data.website}</p>
+            <h3>Address</h3>
+            <p><strong>Street:</strong> ${data.address.street}</p>
+            <p><strong>Suite:</strong> ${data.address.suite}</p>
+            <p><strong>City:</strong> ${data.address.city}</p>
+            <p><strong>Zipcode:</strong> ${data.address.zipcode}</p>
+            <p><strong>Geo - Lat:</strong> ${data.address.geo.lat}</p>
+            <p><strong>Geo - Ing:</strong> ${data.address.geo.lng}</p>
+
+            <h3>Company</h3>
+            <p><strong>Name:</strong> ${data.company.name}</p>
+            <p><strong>Catch Phrase:</strong> ${data.company.catchPhrase}</p>
+            <p><strong>Business:</strong> ${data.company.bs}</p>
+        `;
+
+        });
+
+
+</script>
+
+
+</body>
+</html>

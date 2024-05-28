@@ -103,6 +103,7 @@
         <input type="text" name="age" placeholder="age">
         <button>Create</button>
     </form>
+    <div id="userInfo"></div>
 </div>
 
 <!--block for task 2-->
@@ -135,21 +136,25 @@
 <br>
 <div class="checkAge">
     <form name="f2">
-        <input type="text" name="userAge" placeholder="write your age">
+        <input type="number" name="userAge" placeholder="write your age">
         <button>Get info</button>
     </form>
+    <div id="age"></div>
 </div>
 
 
 <br>
 <div class="tableCreator">
 <form name="formTable">
-    <input type="text" name="rows" placeholder="рядки">
-    <input type="text" name="columns" placeholder="ячейки">
+    <input type="number" name="rows" placeholder="рядки">
+    <input type="number" name="columns" placeholder="ячейки">
     <input type="text" name="cellsContent" placeholder="вміст ячейки">
     <button>create table</button>
 </form>
+    <table id="table"></table>
 </div>
+
+
 
 <script src="hw10.js"></script>
 
