@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Post Details</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .post-info {
+            width: 100%;
+            border: 2px solid black;
+            padding: 5px;
+        }
+
+        .comments-block{
+            margin: 5px;
+            padding: 5px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .comment-block {
+            height: 250px;
+            padding: 5px;
+            width: 23.5%;
+            border: 1px solid black;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="post-info"></div>
+<br>
+<div class="comments-block"></div>
+
+
+<script>
+
+    let divPostInfo = document.getElementsByClassName('post-info')[0]
+    let divCommentContainer = document.getElementsByClassName('comments-block')[0]
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const postTitle = urlParams.get('title')
+
+
+    fetch(`https://jsonplaceholder.typicode.com/posts`)
+        .then((value) => value.json())
+        .then((posts) => {
+
+            const post = posts.find(p => p.title === postTitle);
+
+            divPostInfo.innerText = `userID:  ${post.userId}
+            ID:  ${post.id}
+            Title:   ${post.title}
+            Post:   ${post.body}
+            `
+
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+                .then((value) => value.json())
+                .then((comments) => {
+
+                    for (const comment of comments) {
+
+                        let divComment = document.createElement('div')
+                        divComment.classList = 'comment-block'
+
+                        divComment.innerText = `PostId: ${comment.postId}
+            ID: ${comment.id}
+            Name: ${comment.name}
+            Email: ${comment.email}
+            Comment: ${comment.body}`
+
+                        divCommentContainer.appendChild(divComment)
+                    }
+
+
+
+                })
+
+
+        })
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

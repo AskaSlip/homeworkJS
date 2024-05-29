@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100vw;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .user-block {
+            margin: 5px;
+            padding: 5px;
+            width: 47%;
+            font-size: 20px;
+            border: 2px solid #374639;
+            /*    baackground z kotom*/
+        }
+
+        a {
+            text-decoration: none;
+            font-style: italic;
+            font-size: 18px;
+            color: #374639;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container"></div>
+
+<script>
+
+    let divUsersContainer = document.getElementsByClassName('container')[0]
+    let mainURL = 'https://jsonplaceholder.typicode.com/users'
+
+
+    fetch(mainURL)
+        .then((value) => value.json())
+        .then((response) => {
+            let users = response;
+            for (const user of users) {
+                let divUserBlock = document.createElement('div')
+                divUserBlock.classList = 'user-block'
+
+                let divUser = document.createElement('div')
+                divUser.innerHTML = `User ID: ${user.id}<br>
+                User Name: ${user.name}
+                `
+
+
+                let userButton = document.createElement('button')
+                let link = document.createElement('a')
+                link.innerText = `Personal information`
+                link.href = `user-details.html?id=${user.id}`
+                link.target = '_blank'
+
+                userButton.appendChild(link)
+                divUserBlock.append(divUser, userButton)
+                divUsersContainer.appendChild(divUserBlock)
+            }
+
+
+        })
+
+
+</script>
+
+
+</body>
+</html>

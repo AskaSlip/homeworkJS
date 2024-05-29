@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Details</title>
+    <style>
+        .user-info {
+            border: 2px solid black;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .user-posts{
+            width: 100%;
+
+        }
+
+        .posts {
+            display: none;
+
+        }
+
+        .post {
+            width: 19%;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            border: 1px solid black;
+            padding: 2px;
+
+        }
+
+        span {
+        margin: 2px;
+        }
+
+        .open-posts {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-wrap{
+            margin: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #posts-btn {
+            width: 90%;
+            font-style: italic;
+            font-size: 16px;
+
+        }
+
+        a {
+            text-decoration: none;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="user-info"></div>
+
+<div class="button-wrap">
+    <button id="posts-btn">post of current user</button>
+</div>
+
+<div class="user-posts">
+    <div class="posts">
+
+    </div>
+</div>
+
+    <script>
+
+<!--   info user     -->
+        let divUserInfoContainer = document.getElementsByClassName('user-info')[0]
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+
+        fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
+            .then((value) => value.json())
+            .then((user) => {
+
+
+                divUserInfoContainer.innerText = `ID:  ${user.id}
+            Name:  ${user.name}
+            Username:  ${user.username}
+            Email:  ${user.email}
+            Phone:  ${user.phone}
+            Website:   ${user.website}
+            Address:
+            Street:   ${user.address.street}
+            Suite:   ${user.address.suite}
+            City:   ${user.address.city}
+            Zipcode:  ${user.address.zipcode}
+            Geo - Lat:  ${user.address.geo.lat}
+            Geo - Ing:  ${user.address.geo.lng}
+            Company:
+            Name:  ${user.company.name}
+            Catch Phrase:  ${user.company.catchPhrase}
+            Business:  ${user.company.bs}`;
+
+            });
+
+
+    //     ------- create posts
+
+let divPostsAndButtonContainer = document.getElementsByClassName('user-posts')
+let buttonShowPosts = document.getElementById('posts-btn')
+
+fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+    .then((value) => value.json())
+    .then((posts) => {
+        let divPostsContainer = document.getElementsByClassName('posts')[0]
+
+        for (const post of posts) {
+            let divPost = document.createElement('div')
+            divPost.classList = 'post'
+
+            let postTitle = document.createElement('span')
+            postTitle.innerText = `Title: ${post.title}`
+
+            let postDetailsLink = document.createElement("a")
+            postDetailsLink.innerText = 'post details'
+            postDetailsLink.target = '_blank'
+            postDetailsLink.href = `post-details.html?title=${post.title}`
+
+            divPost.append(postTitle,postDetailsLink)
+            divPostsContainer.appendChild(divPost)
+
+        }
+
+        buttonShowPosts.addEventListener('click', ev => {
+            let showPosts = document.getElementsByClassName('posts')[0]
+            showPosts.classList.toggle('open-posts')
+        })
+
+
+
+
+    })
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
