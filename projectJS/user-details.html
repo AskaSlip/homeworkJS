@@ -8,9 +8,11 @@
     <title>User Details</title>
     <style>
         .user-info {
-            border: 2px solid black;
+            border: 2px solid rgb(119, 85, 39);
             font-size: 16px;
             padding: 5px;
+            background-image: url('cat .png');
+            background-size: cover;
         }
 
         .user-posts{
@@ -23,6 +25,10 @@
 
         }
 
+        span {
+        margin: 2px;
+        }
+
         .post {
             width: 19%;
             height: 150px;
@@ -30,13 +36,10 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            border: 1px solid black;
+            border: 2px dashed rgb(119, 85, 39);
             padding: 2px;
+            background-color: #e8d3b6;
 
-        }
-
-        span {
-        margin: 2px;
         }
 
         .open-posts {
@@ -53,18 +56,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
         }
 
         #posts-btn {
+            height: 30px;
             width: 90%;
             font-style: italic;
-            font-size: 16px;
+            font-size: 20px;
+            background-color: rgb(119, 85, 39);
+            border: none;
+            border-radius: 5px;
+            color: white;
 
         }
 
         a {
             text-decoration: none;
             font-style: italic;
+            color: rgb(119, 85, 39);
         }
 
     </style>
